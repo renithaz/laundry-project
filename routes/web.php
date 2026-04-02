@@ -1,15 +1,16 @@
 <?php
-
-use Illuminate\Support\Facades\Route;
-
-
 //get = melihat data atau menampilkannya
 //post = mengirim data
-//put/patch = merubah atau mengedit data
+//put/patch =  merubah atau mengedit data
 //delete = menghapus data
+
+use App\Http\Controllers\LoginController;
+use Illuminate\Support\Facades\Route;
+
 Route::get('navbar', function () {
-    return view('inc/navbar');
+    return view('inc.navbar');
 });
+
 //Tampilan form perhitungan
 Route::get('perhitungan', function () {
     return view('perhitungan.index');
@@ -21,51 +22,73 @@ Route::post('perhitungan', [App\Http\Controllers\PerhitunganController::class, '
 //Tampilan form Luas Permukaan Kubus
 Route::get('luaspermukaankubus', [App\Http\Controllers\PerhitunganController::class, 'index'])->name('luaspermukaankubus.index');
 
-//Aksi perhitungan luas kubus
+//Aksi Perhitungan LP Kubus
 Route::post('luaspermukaankubus', [App\Http\Controllers\PerhitunganController::class, 'storeLpKubus'])->name('luaspermukaankubus.store');
 
 //Tampilan form Volume Kubus
-Route::get('volumekubus', [App\Http\Controllers\PerhitunganController::class, 'indexKubus'])->name('volumekubus.index');
+Route::get('volumekubus', [App\Http\Controllers\PerhitunganController::class, 'indexVolumeKubus'])->name('volumekubus.index');
 
-//Aksi perhitungan volume kubus
+//Aksi Perhitungan Volume Kubus
 Route::post('volumekubus', [App\Http\Controllers\PerhitunganController::class, 'storeVolumeKubus'])->name('volumekubus.store');
 
 //Tampilan form Luas Permukaan Tabung
-Route::get('luaspermukaantabung', [App\Http\Controllers\PerhitunganController::class, 'indexTabung'])->name('luaspermukaantabung.index');
+Route::get('luaspermukaantabung', [App\Http\Controllers\PerhitunganController::class, 'indexLpTabung'])->name('luaspermukaantabung.index');
 
-//Aksi perhitungan luas tabung
-Route::post('luaspermukaantabung', [App\Http\Controllers\PerhitunganController::class, 'storeLuasTabung'])->name('luaspermukaantabung.store');
+//Aksi Perhitungan Luas Permukaan Tabung
+Route::post('luaspermukaantabung', [App\Http\Controllers\PerhitunganController::class, 'storeLpTabung'])->name('luaspermukaantabung.store');
 
-//limas
-// Route::get('volumelimas',[App\Http\Controllers\VolumeLimasController::class, 'index'])->name('volumelimas.index'); //menampilkan form
-// Route::get('volumelimas/create',[App\Http\Controllers\VolumeLimasController::class, 'create'])->name('volumelimas.create'); //menampilkan data form
-// Route::post('volumelimas/store', [App\Http\Controllers\VolumeLimasController::class, 'store'])->name('volumelimas.store'); //mengisi data di tabel
-// Route::get('volumelimas/edit/{id}', [App\Http\Controllers\VolumeLimasController::class, 'edit'])->name('volumelimas.edit'); // edit lalu menampilkan data
-// Route::put('volumelimas/update/{id}', [App\Http\Controllers\VolumeLimasController::class, 'update'])->name('volumelimas.update'); //update data setelah diubah
-// Route::delete('volumelimas/delete/{id}', [App\Http\Controllers\VolumeLimasController::class, 'destroy'])->name('volumelimas.destroy'); //delete data di tabel
-route::resource('volumelimas', App\Http\Controllers\VolumeLimasController::class);
+//Tampilan form Volume Tabung
+Route::get('volumetabung', [App\Http\Controllers\PerhitunganController::class, 'indexVolumeTabung'])->name('volumetabung.index');
 
-//peserta_pelatihan
-route::resource('pesertapelatihan', App\Http\Controllers\PesertaPelatihanController::class);
+//Aksi Perhitungan Volume Tabung
+Route::post('volumetabung', [App\Http\Controllers\PerhitunganController::class, 'storeVolumeTabung'])->name('volumetabung.store');
 
-// Route::get('pesertapelatihan', [App\Http\Controllers\VolumeLimasController::class, 'index'])->name('pesertapelatihan.index');
+// //Tampilan form Volume Limas Segi Empat
+// Route::get('volumelimas', [App\Http\Controllers\VolumeLimasController::class, 'index'])->name('volumelimas.index');
 
-//belajar
-route::get('belajar', [App\Http\Controllers\BelajarController::class, 'index']);
-route::get('siswa', [App\Http\Controllers\BelajarController::class, 'getSiswa']);
-route::get('create', [App\Http\Controllers\BelajarController::class, 'create'])->name('siswa.create');
-route::post('store', [App\Http\Controllers\BelajarController::class, 'store'])->name('siswa.store');
+// //Tampilan form Create Volume Limas Segi Empat
+// Route::get('volumelimas/create', [App\Http\Controllers\VolumeLimasController::class, 'create'])->name('volumelimas.create');
+
+// //Aksi Perhitungan Volume Limas Segi Empat
+// Route::post('volumelimas/store', [App\Http\Controllers\VolumeLimasController::class, 'store'])->name('volumelimas.store');
+
+// //Tampilan form Edit Volume Limas Segi Empat
+// Route::get('volumelimas/edit/{id}', [App\Http\Controllers\VolumeLimasController::class, 'edit'])->name('volumelimas.edit');
+
+// //Aksi Update Volume Limas Segi Empat
+// Route::put('volumelimas/update/{id}', [App\Http\Controllers\VolumeLimasController::class, 'update'])->name('volumelimas.update');
+
+// //Aksi Delete Volume Limas Segi Empat
+// Route::delete('volumelimas/delete/{id}', [App\Http\Controllers\VolumeLimasController::class, 'destroy'])->name('volumelimas.destroy');
+
+Route::resource('volumelimas', App\Http\Controllers\VolumeLimasController::class);
+
+Route::resource('pesertapelatihan', App\Http\Controllers\PesertaPelatihanController::class);
 
 
-Route::get('/', [App\Http\Controllers\LoginController::class, 'index']);
+Route::get('belajar-laravel', [App\Http\Controllers\BelajarController::class, 'index'])->name('belajar.index');
+Route::get('siswa', [App\Http\Controllers\BelajarController::class, 'getSiswa']);
+
+Route::get('create', [App\Http\Controllers\BelajarController::class, 'create'])->name('siswa.create');
+Route::post('store', [App\Http\Controllers\BelajarController::class, 'store'])->name('siswa.store');
+
+Route::get('/', [\App\Http\Controllers\LoginController::class, 'index']);
+
 Route::post('action-login', [\App\Http\Controllers\LoginController::class, 'actionLogin'])->name('action-login');
 Route::post('logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
 
-Route::resource('user', \App\Http\Controllers\UserController::class);
-Route::resource('role', \App\Http\Controllers\RoleController::class);
-Route::resource('student', \App\Http\Controllers\StudentController::class);
+Route::resource('user', App\Http\Controllers\UserController::class);
+//get, post, put/patch, delete
+Route::resource('role', App\Http\Controllers\RoleController::class);
+Route::resource('student', App\Http\Controllers\StudentController::class);
+Route::resource('attendance', App\Http\Controllers\AttendanceController::class);
 
-Route::resource('attendance', \App\Http\Controllers\AttendanceController::class);
 
-Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index']);
-// Route::get('/login')
+Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index']);
+
+// Route::get('/login', function() {
+//     return view('nama-view');
+// });
+
+Route::get('auth/google', [LoginController::class, 'redirect'])->name('google-auth');
+Route::get('auth/google/callback-url', [LoginController::class, 'callbackGoogle']);

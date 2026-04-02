@@ -104,7 +104,9 @@
                                         </div>
 
                                     </form>
-
+                                    <div class="mt-2">
+                                        <a href="{{ route('google-auth') }}" class="btn btn-danger w-100">Login with Google</a>
+                                    </div>
                                 </div>
                             </div>
 
