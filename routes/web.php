@@ -20,8 +20,9 @@ Route::post('logout', [\App\Http\Controllers\LoginController::class, 'logout'])-
 Route::resource('user', App\Http\Controllers\UserController::class);
 //get, post, put/patch, delete
 Route::resource('level', App\Http\Controllers\LevelController::class);
-Route::resource('student', App\Http\Controllers\StudentController::class);
-Route::resource('attendance', App\Http\Controllers\AttendanceController::class);
+Route::resource('customer', App\Http\Controllers\CustomerController::class);
+Route::resource('service', App\Http\Controllers\ServiceController::class);
+
 
 
 Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index']);
