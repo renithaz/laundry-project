@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Role;
+use App\Models\Level;
 
-class RoleSeeder extends Seeder
+class LevelSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,15 +14,15 @@ class RoleSeeder extends Seeder
     public function run(): void
     {
         //
-        Role::insert([
+        Level::insert([
             [
                 'name' => 'administrator',
             ],
             [
-                'name' => 'instruktur',
+                'name' => 'operator',
             ],
             [
-                'name' => 'pic',
+                'name' => 'pimpinan',
             ],
         ]);
     }

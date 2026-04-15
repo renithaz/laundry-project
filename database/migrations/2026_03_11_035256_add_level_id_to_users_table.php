@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('limas', function (Blueprint $table) {
-            $table->id();
-            $table->double('luas_alas')->nullable();
-            $table->double('tinggi')->nullable();
-            $table->double('hasil')->nullable();
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreignId('level_id')->constrained('levels')->cascadeOnDelete();
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('limas');
+        Schema::table('users', function (Blueprint $table) {
+            
+        });
     }
 };

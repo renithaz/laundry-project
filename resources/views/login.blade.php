@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Berita Acara || PPKD JP</title>
+    <title>Laundry PPKD JP</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -54,7 +54,7 @@
                             <div class="d-flex justify-content-center py-4">
                                 <a href="index.html" class="logo d-flex align-items-center w-auto">
                                     <img src="assets/img/logo.png" alt="">
-                                    <span class="d-none d-lg-block">Berita Acara App</span>
+                                    <span class="d-none d-lg-block">Laundry</span>
                                 </a>
                             </div><!-- End Logo -->
 
@@ -102,11 +102,6 @@
                                         <div class="col-12">
                                             <button class="btn btn-primary w-100" type="submit">Login</button>
                                         </div>
-
-                                    </form>
-                                    <div class="mt-2">
-                                        <a href="{{ route('google-auth') }}" class="btn btn-danger w-100">Login with Google</a>
-                                    </div>
                                 </div>
                             </div>
 

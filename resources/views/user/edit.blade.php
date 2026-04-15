@@ -12,11 +12,11 @@
                         @csrf
                         @method('PUT')
                         <div class="mb-3">
-                            <label for="name" class="form-label">Role *</label>
-                            <select name="role_id" id="" class="form-control">
-                                <option value="">--Select Role--</option>
-                                @foreach ($roles as $role)       
-                                <option value="{{ $role->id }}" {{ $role->id == $user->role_id ? 'selected' : '' }}>{{ $role->name }}</option>
+                            <label for="name" class="form-label">Level *</label>
+                            <select name="level_id" id="" class="form-control">
+                                <option value="">--Select Level--</option>
+                                @foreach ($levels as $level)       
+                                <option value="{{ $level->id }}" {{ $level->id == $user->level_id ? 'selected' : '' }}>{{ $level->name }}</option>
                                 @endforeach 
                             </select>
                         </div>

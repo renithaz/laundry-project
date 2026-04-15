@@ -16,9 +16,9 @@ class UserSeeder extends Seeder
         // create, bulk(insert)
         User::create([
             'name' => 'renz',
-            'email' => 'renz@gmail.com',
-            'password' => '123456798',
-            'role_id' => 1,
+            'email' => 'reni@gmail.com',
+            'password' => '12345678',
+            'level_id' => 1,
         ]);
     }
 }

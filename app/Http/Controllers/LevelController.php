@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Role;
+use App\Models\Level;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 
-class RoleController extends Controller
+class LevelController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $title = "Data Role";
-        $roles = Role::get(); //select * from users
-        return view('role.index', compact('title', 'roles'));
+        $title = "Data Level";
+        $levels = Level::get(); //select * from users
+        return view('level.index', compact('title', 'levels'));
     }
 
     /**
@@ -23,8 +23,8 @@ class RoleController extends Controller
      */
     public function create()
     {
-        $title = "Create New Role";
-        return view('role.create', compact('title'));
+        $title = "Create New Level";
+        return view('level.create', compact('title'));
     }
 
     /**
@@ -33,16 +33,16 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|unique:roles,name',
+            'name' => 'required|string|unique:levels,name',
         ]);
 
         //insert into users() values()
-        Role::create([
+        Level::create([
             'name' => $request->name,
         ]);
 
-        Alert::success('Success', 'Role created successfully');
-        return redirect()->route('role.index');
+        Alert::success('Success', 'Level created successfully');
+        return redirect()->route('level.index');
     }
 
     /**
@@ -58,9 +58,9 @@ class RoleController extends Controller
      */
     public function edit(string $id)
     {
-        $title = "Edit Role";
-        $role = Role::find($id); 
-        return view('role.edit', compact('title', 'role'));
+        $title = "Edit Level";
+        $level = Level::find($id); 
+        return view('level.edit', compact('title', 'level'));
     }
 
     /**
@@ -69,16 +69,16 @@ class RoleController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'name' => 'required|string|unique:roles,name,' . $id,
+            'name' => 'required|string|unique:levels,name,' . $id,
             
         ]);
 
-        $role = Role::find($id);
-        $role->name = $request->name;
-        $role->save();
+        $level = Level::find($id);
+        $level->name = $request->name;
+        $level->save();
 
-        Alert::success('Success', 'Role updated successfully');
-        return redirect()->route('role.index');
+        Alert::success('Success', 'Level updated successfully');
+        return redirect()->route('level.index');
     }
     
 
@@ -87,9 +87,9 @@ class RoleController extends Controller
      */
     public function destroy(string $id)
     {
-        $role = Role::find($id); 
-        $role->delete();
+        $level = Level::find($id); 
+        $level->delete();
         Alert::success('Success', 'User deleted successfully');
-        return redirect()->route('role.index');
+        return redirect()->route('level.index');
     }
 }

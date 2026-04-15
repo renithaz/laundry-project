@@ -6,33 +6,25 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $title ?? '' }}</h5>
                     <div class="mb-3" align="right">
-                        <a href="{{ route('student.create') }}" class="btn btn-sm btn-primary">Create New Student</a>
+                        <a href="{{ route('level.create') }}" class="btn btn-sm btn-primary">Create New Level</a>
                     </div>
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Image</th>
                                 <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Gender</th>
                                 <th>Action</th>
 
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($students as $student)
+                            @foreach ($levels as $level)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td><img src="{{ asset('uploads/students/' . $student->image)}}" width="100"></td>
-                                    <td>{{ $student->name }}</td>
-                                    <td>{{ $student->email }}</td>
-                                    <td>{{ $student->phone }}</td>
-                                    <td>{{ $student->gender == 1 ?'Male' : 'Female' }}</td>
+                                    <td>{{ $level->name }}</td>
                                     <td>
-                                        <a href="{{ route('student.edit', $student->id) }}" class="btn btn-primary btn-sm">Edit</a>
-                                        <form id="delete-form-{{ $student->id }}" action="{{ route('student.destroy', $student->id) }}" method="post" class="d-inline">
+                                        <a href="{{ route('level.edit', $level->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                                        <form id="delete-form-{{ $level->id }}" action="{{ route('level.destroy', $level->id) }}" method="post" class="d-inline">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm delete-btn">Delete</button>

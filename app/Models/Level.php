@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class Level extends Model
 {
     protected $fillable = [
         'name',
@@ -12,6 +12,6 @@ class Role extends Model
 
     public function users()
     {
-        return $this->hasMany(User::class, 'role_id', 'id');
+        return $this->hasMany(User::class, 'level_id', 'id');
     }
 }

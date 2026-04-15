@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Role;
+use App\Models\Level;
 use App\Models\User;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -15,7 +15,7 @@ class UserController extends Controller
     public function index()
     {
         $title = "Data User";
-        $users = User::with('role')->get(); //select * from users
+        $users = User::with('level')->get(); //select * from users
         return view('user.index', compact('title', 'users'));
     }
 
@@ -25,8 +25,8 @@ class UserController extends Controller
     public function create()
     {
         $title = "Create New User";
-        $roles = Role::all();
-        return view('user.create', compact('title', 'roles'));
+        $levels = Level::all();
+        return view('user.create', compact('title', 'levels'));
     }
 
     /**
@@ -45,7 +45,7 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password,
-            'role_id' => $request->role_id
+            'level_id' => $request->level_id,
         ]);
 
         Alert::success('Success', 'User created successfully');
@@ -67,8 +67,8 @@ class UserController extends Controller
     {
         $title = "Edit User";
         $user = User::find($id); //select * from users where id='$id'
-        $roles = Role::all();
-        return view('user.edit', compact('title', 'user', 'roles'));
+        $levels = Level::all();
+        return view('user.edit', compact('title', 'user', 'levels'));
     }
 
     /**
@@ -85,7 +85,7 @@ class UserController extends Controller
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->role_id = $request->role_id;
+        $user->level_id = $request->level_id;
         if ($request->password){
             $user->password = $request->password;
         }

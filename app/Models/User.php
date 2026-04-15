@@ -21,13 +21,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'google_id',
-        'role_id'
+        'level_id'
     ];
 
-    public function role()
+    public function level()
     {
-        return $this->belongsTo(Role::class, 'role_id', 'id');
+        return $this->belongsTo(Level::class, 'level_id', 'id');
     }
 
     /**

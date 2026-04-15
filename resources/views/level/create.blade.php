@@ -8,7 +8,7 @@
                         <div class="alert alert-danger">{{ $errors->first() }}</div>
                     @endif
                     <h5 class="card-title">{{ $title ?? '' }}</h5>
-                    <form action="{{ route('role.store') }}" method="post">
+                    <form action="{{ route('level.store') }}" method="post">
                         @csrf
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
