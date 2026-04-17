@@ -11,22 +11,22 @@
                     <form action="{{ route('service.store') }}" method="post">
                         @csrf
                         <div class="mb-3">
-                            <label for="name" class="form-label">Service Name</label>
+                            <label for="name" class="form-label">Nama Service</label>
                             <input type="text" class="form-control" id="service_name" name="service_name"
-                                placeholder="Enter your name" required>
+                                placeholder="Masukkan nama service" required>
                         </div>
                         <div class="mb-3">
-                            <label for="number" class="form-label">Price</label>
+                            <label for="number" class="form-label">Harga</label>
                             <input type="text" class="form-control" id="price" name="price"
-                                placeholder="Enter your price" required>
+                                placeholder="Masukkan harga" required>
                         </div>
                         <div class="mb-3">
-                            <label for="description" class="form-label">Description</label>
+                            <label for="description" class="form-label">Deskripsi</label>
                             <input type="textarea" class="form-control" id="description" name="description"
-                                placeholder="Enter your description" required>
+                                placeholder="Masukkan deskripsi" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Save</button>
-                        <a href="{{ url()->previous() }}" class="btn btn-secondary">Back</a>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <a href="{{ url()->previous() }}" class="btn btn-secondary">Kembali</a>
                     </form>
                 </div>
             </div>

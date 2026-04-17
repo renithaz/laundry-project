@@ -6,16 +6,16 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $title ?? '' }}</h5>
                     <div class="mb-3" align="right">
-                        <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">Create New User</a>
+                        <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">Buat akun baru</a>
                     </div>
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>No</th>
                                 <th>Level</th>
-                                <th>Name</th>
+                                <th>Nama</th>
                                 <th>Email</th>
-                                <th>Action</th>
+                                <th>Aksi</th>
 
                             </tr>
                         </thead>
@@ -28,12 +28,12 @@
                                     <td>{{ $user->email }}</td>
                                     <td>
                                         <a href="{{ route('user.edit', $user->id) }}"
-                                            class="btn btn-primary btn-sm">Edit</a>
+                                            class="btn btn-primary btn-sm">Ubah</a>
                                         <form id="delete-form-{{ $user->id }}"
                                             action="{{ route('user.destroy', $user->id) }}" method="post" class="d-inline">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm delete-btn">Delete</button>
+                                            <button type="submit" class="btn btn-danger btn-sm delete-btn">Hapus</button>
                                         </form>
                                     </td>
                                 </tr>

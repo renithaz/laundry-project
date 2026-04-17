@@ -6,14 +6,14 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $title ?? '' }}</h5>
                     <div class="mb-3" align="right">
-                        <a href="{{ route('level.create') }}" class="btn btn-sm btn-primary">Create New Level</a>
+                        <a href="{{ route('level.create') }}" class="btn btn-sm btn-primary">Buat Level Baru</a>
                     </div>
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Name</th>
-                                <th>Action</th>
+                                <th>Nama</th>
+                                <th>Aksi</th>
 
                             </tr>
                         </thead>
@@ -23,11 +23,11 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $level->name }}</td>
                                     <td>
-                                        <a href="{{ route('level.edit', $level->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                                        <a href="{{ route('level.edit', $level->id) }}" class="btn btn-primary btn-sm">Ubah</a>
                                         <form id="delete-form-{{ $level->id }}" action="{{ route('level.destroy', $level->id) }}" method="post" class="d-inline">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm delete-btn">Delete</button>
+                                            <button type="submit" class="btn btn-danger btn-sm delete-btn">Hapus</button>
                                         </form>
                                     </td>
                                 </tr>

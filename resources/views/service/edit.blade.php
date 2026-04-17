@@ -12,19 +12,19 @@
                         @csrf
                         @method('PUT')
                         <div class="mb-3">
-                            <label for="name" class="form-label">Service Name *</label>
+                            <label for="name" class="form-label">Nama Service *</label>
                             <input type="text" class="form-control" id="service_name" name="service_name"
-                                placeholder="Enter your name" required value="{{ $service->service_name }}">
+                                placeholder="Masukkan nama service" required value="{{ $service->service_name }}">
                         </div>
                         <div class="mb-3">
-                            <label for="number" class="form-label">Price *</label>
+                            <label for="number" class="form-label">Harga *</label>
                             <input type="text" class="form-control" id="price" name="price"
-                                placeholder="Enter your price" required value="{{ $service->price }}">
+                                placeholder="Masukkan harga" required value="{{ $service->price }}">
                         </div>
                         <div class="mb-3">
-                            <label for="description" class="form-label">Description *</label>
+                            <label for="description" class="form-label">Deskripsi *</label>
                             <input type="textarea" class="form-control" id="description" name="description"
-                                placeholder="Enter your description" value="{{ $service->description }}">
+                                placeholder="Masukkan deskripsi" value="{{ $service->description }}">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Save Change</button>

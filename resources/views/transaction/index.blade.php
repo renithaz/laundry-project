@@ -4,7 +4,7 @@
 <div class="card">
     <div class="card-header d-flex justify-content-between">
         <h5>Data Transaksi Order</h5>
-        <a href="{{ route('transaction.create') }}" class="btn btn-primary">+ Add Order</a>
+        <a href="{{ route('transaction.create') }}" class="btn btn-primary">+ Tambah Order</a>
     </div>
 
     <div class="card-body">
@@ -17,11 +17,10 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Code Order</th>
+                    <th>Kode Order</th>
                     <th>Customer</th>
-                    <th>Order Date</th>
-                    <th>Order End Date</th>
-
+                    <th>Tgl Awal Pemesanan</th>
+                    <th>Tgl Akhir Pemesanan</th>
                     <th>Status</th>
                     <th>Total</th>
                     <th width="200">Aksi</th>

@@ -11,22 +11,22 @@
                     <form action="{{ route('customer.store') }}" method="post">
                         @csrf
                         <div class="mb-3">
-                            <label for="name" class="form-label">Customer Name</label>
+                            <label for="name" class="form-label">Nama Customer</label>
                             <input type="text" class="form-control" id="customer_name" name="customer_name"
-                                placeholder="Enter your name" required>
+                                placeholder="Masukkan nama anda" required>
                         </div>
                         <div class="mb-3">
-                            <label for="number" class="form-label">Phone</label>
+                            <label for="number" class="form-label">No. Telpon</label>
                             <input type="text" class="form-control" id="phone" name="phone"
-                                placeholder="Enter your phone" required>
+                                placeholder="Masukkan no.telpon anda" required>
                         </div>
                         <div class="mb-3">
-                            <label for="address" class="form-label">Address</label>
+                            <label for="address" class="form-label">Alamat</label>
                             <input type="textarea" class="form-control" id="address" name="address"
-                                placeholder="Enter your address" required>
+                                placeholder="Masukkan alamat anda" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Save</button>
-                        <a href="{{ url()->previous() }}" class="btn btn-secondary">Back</a>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <a href="{{ url()->previous() }}" class="btn btn-secondary">Kembali</a>
                     </form>
                 </div>
             </div>

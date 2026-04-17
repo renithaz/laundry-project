@@ -56,7 +56,7 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('transaction.index') }}">
                 <i class="bi bi-box-arrow-in-right"></i>
-                <span>Transaction</span>
+                <span>Transaksi</span>
             </a>
         </li><!-- End Login Page Nav -->
         @endif

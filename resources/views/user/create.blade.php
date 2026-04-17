@@ -13,7 +13,7 @@
                         <div class="mb-3">
                             <label for="name" class="form-label">Level</label>
                             <select name="level_id" id="" class="form-control">
-                                <option value="">--Select level--</option>
+                                <option value="">--Pilih level--</option>
                                 @foreach ($levels as $level)       
                                 <option value="{{ $level->id }}">{{ $level->name }}</option>
                                 @endforeach 
@@ -22,19 +22,19 @@
                                 placeholder="Enter your name" required>  --}}
                         </div>
                         <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
+                            <label for="name" class="form-label">Nama</label>
                             <input type="text" class="form-control" id="name" name="name"
-                                placeholder="Enter your name" required>
+                                placeholder="Masukkan nama anda" required>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" class="form-control" id="email" name="email"
-                                placeholder="Enter your email" required>
+                                placeholder="Masukkan email anda" required>
                         </div>
                         <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
+                            <label for="password" class="form-label">Kata Sandi</label>
                             <input type="password" class="form-control" id="password" name="password"
-                                placeholder="Enter your password" required>
+                                placeholder="Masukkan kata sandi anda" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Save</button>
                         <a href="{{ url()->previous() }}" class="btn btn-secondary">Back</a>

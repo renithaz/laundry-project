@@ -14,31 +14,31 @@
                         <div class="mb-3">
                             <label for="name" class="form-label">Level *</label>
                             <select name="level_id" id="" class="form-control">
-                                <option value="">--Select Level--</option>
+                                <option value="">--Pilih Level--</option>
                                 @foreach ($levels as $level)       
                                 <option value="{{ $level->id }}" {{ $level->id == $user->level_id ? 'selected' : '' }}>{{ $level->name }}</option>
                                 @endforeach 
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="name" class="form-label">Name *</label>
+                            <label for="name" class="form-label">Nama *</label>
                             <input type="text" class="form-control" id="name" name="name"
-                                placeholder="Enter your name" required value="{{ $user->name }}">
+                                placeholder="Masukkan nama anda" required value="{{ $user->name }}">
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email *</label>
                             <input type="email" class="form-control" id="email" name="email"
-                                placeholder="Enter your email" required value="{{ $user->email }}">
+                                placeholder="Masukkan email anda" required value="{{ $user->email }}">
                         </div>
                         <div class="mb-3">
-                            <label for="password" class="form-label">Password *</label>
+                            <label for="password" class="form-label">Kata Sandi *</label>
                             <input type="password" class="form-control" id="password" name="password"
-                                placeholder="Enter your password">
-                            <small class="text-secondary">Leave blank if you dont want to change the password</small>
+                                placeholder="Masukkan kata sandi anda">
+                            <small class="text-secondary">Kosongkan kolom ini jika tidak ingin mengubah kata sandi.</small>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Save Change</button>
-                        <a href="{{ url()->previous() }}" class="btn btn-secondary">Back</a>
+                        <button type="submit" class="btn btn-primary">Simpan perubahan</button>
+                        <a href="{{ url()->previous() }}" class="btn btn-secondary">Kembali</a>
                     </form>
                 </div>
             </div>
