@@ -16,13 +16,13 @@ class LevelSeeder extends Seeder
         //
         Level::insert([
             [
-                'name' => 'administrator',
+                'name' => 'Administrator',
             ],
             [
-                'name' => 'operator',
+                'name' => 'Operator',
             ],
             [
-                'name' => 'pimpinan',
+                'name' => 'Pimpinan',
             ],
         ]);
     }

@@ -11,4 +11,8 @@ class Customer extends Model
         'phone',
         'address'
     ];
+
+    public function order(){
+        return $this->hasMany(TransOrder::class, 'customer_id', 'id');
+    }
 }

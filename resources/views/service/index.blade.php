@@ -24,7 +24,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $service->service_name }}</td>
-                                    <td>{{ $service->price }}</td>
+                                    <td>Rp {{ number_format($service->price,2, ',', '.')}}</td>
                                     <td>{{ $service->description }}</td>
 
                                     <td>

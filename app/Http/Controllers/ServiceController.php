@@ -13,7 +13,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $title = "Type of Service";
+        $title = "Service";
         $services = Service::all();
         return view('service.index', compact('title', 'services'));
     }
