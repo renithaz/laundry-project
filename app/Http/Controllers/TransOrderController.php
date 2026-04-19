@@ -17,8 +17,9 @@ class TransOrderController extends Controller
      */
     public function index()
     {
+        $title = "Data Transaksi Order";
         $orders = TransOrder::with('customer')->latest()->get();
-        return view('transaction.index', compact('orders'));
+        return view('transaction.index', compact('title','orders'));
     }
 
     /**
@@ -122,7 +123,8 @@ class TransOrderController extends Controller
                     'order_id'   => $order->id,
                     'service_id' => $service['service_id'],
                     'qty'        => $qty,
-                    'subtotal'   => $subtotal
+                    'subtotal'   => $subtotal,
+                    'notes'      => $service['notes'] ?? null
                 ]);
 
                 $total += $subtotal;
@@ -183,7 +185,7 @@ class TransOrderController extends Controller
             'order_status' => $request->order_status
         ]);
 
-        return redirect()->back()->with('success', 'Status order berhasil diperbarui');
+        return redirect()->back()->with('Sukses', 'Status order berhasil diperbarui');
     }
 
     /**
@@ -194,7 +196,7 @@ class TransOrderController extends Controller
         $transorder = TransOrder::find($id);
         $transorder->delete();
 
-        Alert::success('Success', 'Order deleted successfully');
+        Alert::success('Sukses', 'Order berhasil dihapus');
         return redirect()->route('transaction.index');
     }
 }

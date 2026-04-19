@@ -7,10 +7,10 @@
                     @if ($errors->any())
                         <div class="alert alert-danger">{{ $errors->first() }}</div>
                     @endif
-                    <h5 class="card-title">{{ $title ?? '' }}</h5>
+                    <!-- <h5 class="card-title">{{ $title ?? '' }}</h5> -->
                     <form action="{{ route('user.store') }}" method="post">
                         @csrf
-                        <div class="mb-3">
+                        <div class="mb-3 mt-3">
                             <label for="name" class="form-label">Level</label>
                             <select name="level_id" id="" class="form-control">
                                 <option value="">--Pilih level--</option>

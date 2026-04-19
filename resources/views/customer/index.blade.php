@@ -4,9 +4,9 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">{{ $title ?? '' }}</h5>
+                    <!-- <h5 class="card-title">{{ $title ?? '' }}</h5> -->
                     <div class="mb-3" align="right">
-                        <a href="{{ route('customer.create') }}" class="btn btn-sm btn-primary">Buat customer baru</a>
+                        <a href="{{ route('customer.create') }}" class="btn btn-sm btn-primary mt-3">Tambah customer baru</a>
                     </div>
                     <table class="table table-bordered table-striped">
                         <thead>

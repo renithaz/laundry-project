@@ -4,9 +4,7 @@
 @section('title', 'Kasir Laundry')
 
 @section('content')
-<div class="container py-3">
-
-    
+<div class="container py-3">  
     <h5 class="mb-3">Tambah Order</h5>
     @if ($errors->any())
         <div class="alert alert-danger">{{ $errors->first() }}</div>
@@ -23,7 +21,7 @@
                 {{-- CUSTOMER --}}
                 <div class="card mb-3">
                     <div class="card-body">
-                        <div class="mb-3">
+                        <div class="mb-3 mt-3">
                             <label class="form-label">Tipe Customer</label>
                             <div>
                                 <div class="form-check form-check-inline">
@@ -75,15 +73,15 @@
                 {{-- TANGGAL --}}
                 <div class="card mb-3">
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row mt-3">
                             <div class="col">
                                 <label>Tanggal Masuk</label>
-                                <input type="date" name="order_date" class="form-control"
+                                <input type="date" name="order_date" class="form-control mt-2"
                                     value="{{ date('Y-m-d') }}" required>
                             </div>
                             <div class="col">
                                 <label>Tanggal Selesai</label>
-                                <input type="date" name="order_end_date" class="form-control"
+                                <input type="date" name="order_end_date" class="form-control mt-2"
                                     value="{{ date('Y-m-d', strtotime('+2 days')) }}" required>
                             </div>
                         </div>
@@ -99,13 +97,13 @@
                                 <tr>
                                     <th>Service</th>
                                     <th width="120">Qty</th>
+                                    <th>Catatan</th>
                                     <th width="150">Subtotal</th>
                                     <th width="50"></th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
                         </table>
-
                         <button type="button" id="add-row" class="btn btn-primary btn-sm">
                             + Tambah Service
                         </button>
@@ -185,6 +183,9 @@ function addRow() {
         <td>
             <input type="number" name="services[${index}][qty]" value="1"
                 class="form-control qty">
+        </td>
+        <td>
+            <input type="text" name="services[${index}][notes]" class="form-control" placeholder="Catatan">
         </td>
         <td class="subtotal">Rp 0</td>
         <td>

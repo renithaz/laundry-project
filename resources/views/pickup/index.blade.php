@@ -4,34 +4,36 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <!-- <h5 class="card-title">{{ $title ?? '' }}</h5> -->
+                    <!-- <h5 class="card-title">Data Pickup Laundry</h5> -->
+                    @if(session('success'))
+                        <div class="alert alert-success">{{ session('success') }}</div>
+                    @endif
                     <div class="mb-3" align="right">
-                        <a href="{{ route('service.create') }}" class="btn btn-sm btn-primary mt-3">Buat Service Baru</a>
+                        <a href="{{ route('pickup.create') }}" class="btn btn-sm btn-primary mt-3">Tambah Pickup</a>
                     </div>
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama Service</th>
-                                <th>Harga</th>
-                                <th>Deskripsi</th>
+                                <th>Kode Order</th>
+                                <th>Nama Customer</th>
+                                <th>Tanggal Pickup</th>
+                                <th>Catatan</th>
                                 <th>Aksi</th>
-
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($services as $service)
+                            @foreach ($pickups as $pickup)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $service->service_name }}</td>
-                                    <td>Rp {{ number_format($service->price,2, ',', '.')}}</td>
-                                    <td>{{ $service->description }}</td>
-
+                                    <td>{{ $pickup->order->order_code ?? '-' }}</td>
+                                    <td>{{ $pickup->customer->customer_name ?? '-' }}</td>
+                                    <td>{{ $pickup->pickup_date }}</td>
+                                    <td>{{ $pickup->notes }}</td>
                                     <td>
-                                        <a href="{{ route('service.edit', $service->id) }}"
-                                            class="btn btn-primary btn-sm">Ubah</a>
-                                        <form id="delete-form-{{ $service->id }}"
-                                            action="{{ route('service.destroy', $service->id) }}" method="post" class="d-inline">
+                                        
+                                        <form id="delete-form-{{ $pickup->id }}"
+                                            action="{{ route('pickup.destroy', $pickup->id) }}" method="post" class="d-inline">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm delete-btn">Hapus</button>

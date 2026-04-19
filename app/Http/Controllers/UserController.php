@@ -24,7 +24,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $title = "Create New User";
+        $title = "Buat User Baru";
         $levels = Level::all();
         return view('user.create', compact('title', 'levels'));
     }
@@ -48,7 +48,7 @@ class UserController extends Controller
             'level_id' => $request->level_id,
         ]);
 
-        Alert::success('Success', 'User created successfully');
+        Alert::success('Sukses', 'User berhasil dibuat');
         return redirect()->route('user.index');
     }
 
@@ -65,7 +65,7 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        $title = "Edit User";
+        $title = "Ubah User";
         $user = User::find($id); //select * from users where id='$id'
         $levels = Level::all();
         return view('user.edit', compact('title', 'user', 'levels'));
@@ -91,7 +91,7 @@ class UserController extends Controller
         }
         $user->save();
 
-        Alert::success('Success', 'User updated successfully');
+        Alert::success('Sukses', 'User berhasil diperbarui');
         return redirect()->route('user.index');
     }
     
@@ -103,7 +103,7 @@ class UserController extends Controller
     {
         $user = User::find($id); //select * from users where id='$id'
         $user->delete();
-        Alert::success('Success', 'User deleted successfully');
+        Alert::success('Sukses', 'User berhasil dihapus');
         return redirect()->route('user.index');
     }
 }

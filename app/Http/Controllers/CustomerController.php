@@ -23,7 +23,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        $title = "Create New Customer";
+        $title = "Tambah Customer Baru";
         return view('customer.create', compact('title'));
     }
 
@@ -40,7 +40,7 @@ class CustomerController extends Controller
 
         Customer::create($request->all());
 
-        Alert::success('Success', 'Customer created successfully');
+        Alert::success('Success', 'Customer berhasil ditambahkan');
         return redirect()->route('customer.index');
     }
 
@@ -57,7 +57,7 @@ class CustomerController extends Controller
      */
     public function edit(string $id)
     {
-        $title = "Edit Customer";
+        $title = "Ubah Data Customer";
         $customer = Customer::find($id);
         return view('customer.edit', compact('title', 'customer'));
     }
@@ -77,7 +77,7 @@ class CustomerController extends Controller
         $customer->update($request->all());
         $customer->save();
 
-        Alert::success('Success', 'Customer updated successfully');
+        Alert::success('Sukses', 'Data customer berhasil diperbarui');
         return redirect()->route('customer.index');
     }
 
@@ -89,7 +89,7 @@ class CustomerController extends Controller
         $customer = Customer::find($id); //select * from customers where id='$id'
         $customer->delete();
         
-        Alert::success('Success', 'Customer deleted successfully');
+        Alert::success('Sukses', 'Data customer berhasil dihapus');
         return redirect()->route('customer.index');
     }
 }

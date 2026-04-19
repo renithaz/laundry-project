@@ -23,7 +23,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        $title = "Create New Service";
+        $title = "Buat Service Baru";
         return view('service.create', compact('title'));
     }
 
@@ -40,7 +40,7 @@ class ServiceController extends Controller
 
         Service::create($request->all());
 
-        Alert::success('Success', 'Service created successfully');
+        Alert::success('Sukses', 'Service berhasil dibuat');
         return redirect()->route('service.index');
     }
 
@@ -57,9 +57,9 @@ class ServiceController extends Controller
      */
     public function edit(string $id)
     {
-        $title = "Edit Service";
+        $title = "Ubah Data Service";
         $service = Service::find($id);
-        return view('customer.edit', compact('title', 'service'));
+        return view('service.edit', compact('title', 'service'));
     }
 
     /**
@@ -77,7 +77,7 @@ class ServiceController extends Controller
         $service->update($request->all());
         $service->save();
 
-        Alert::success('Success', 'Service updated successfully');
+        Alert::success('Sukses', 'Service berhasil diperbarui');
         return redirect()->route('service.index');
     }
 
@@ -89,7 +89,7 @@ class ServiceController extends Controller
         $service = Service::find($id);
         $service->delete();
 
-        Alert::success('Success', 'Service deleted successfully');
+        Alert::success('Sukses', 'Service berhasil dihapus');
         return redirect()->route('service.index');
     }
 }

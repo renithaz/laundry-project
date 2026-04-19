@@ -18,13 +18,16 @@ Route::post('action-login', [\App\Http\Controllers\LoginController::class, 'acti
 Route::post('logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
 
 Route::middleware(['level:administrator'])->group(function () {
-    Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index']);
+    Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     Route::resource('user', App\Http\Controllers\UserController::class);
     //get, post, put/patch, delete
     Route::resource('level', App\Http\Controllers\LevelController::class);
     Route::resource('customer', App\Http\Controllers\CustomerController::class);
     Route::resource('service', App\Http\Controllers\ServiceController::class);
     Route::resource('transaction', App\Http\Controllers\TransOrderController::class);
+    Route::resource('pickup', App\Http\Controllers\PickupLaundryController::class);
+    Route::resource('report', App\Http\Controllers\ReportController::class);
+
     
 });
 

@@ -25,6 +25,7 @@
             <thead>
                 <tr>
                     <th>Layanan</th>
+                    <th>Catatan</th>
                     <th>Qty</th>
                     <th>Price</th>
                     <th>Subtotal</th>
@@ -34,6 +35,7 @@
                 @foreach($order->details as $d)
                 <tr>
                     <td>{{ $d->service->service_name }}</td>
+                    <td>{{ $d->notes ?? '-' }}</td>
                     <td>{{ $d->qty }}</td>
                     <td>Rp {{ number_format($d->service->price,0,',','.') }}</td>
                     <td>Rp {{ number_format($d->subtotal,0,',','.') }}</td>

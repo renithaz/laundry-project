@@ -7,11 +7,11 @@
                     @if ($errors->any())
                         <div class="alert alert-danger">{{ $errors->first() }}</div>
                     @endif
-                    <h5 class="card-title">{{ $title ?? '' }}</h5>
+                    <!-- <h5 class="card-title">{{ $title ?? '' }}</h5> -->
                     <form action="{{ route('level.update', $level->id) }}" method="post">
                         @csrf
                         @method('PUT')
-                        <div class="mb-3">
+                        <div class="mb-3 mt-3">
                             <label for="name" class="form-label">Nama</label>
                             <input type="text" class="form-control" id="name" name="name"
                                 placeholder="Masukkan nama" required value="{{ $level->name }}">

@@ -2,10 +2,10 @@
 
     <ul class="sidebar-nav" id="sidebar-nav">
 
-        <li class="nav-heading">Master Data</li>
+        <li class="nav-heading">Master Utama</li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="index.html">
+            <a class="nav-link {{ request()->is('dashboard') ? '' : 'collapsed' }}" href="{{ route('dashboard') }}">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
@@ -13,7 +13,8 @@
 
         @php $level = auth()->user()->level->name; @endphp
 
-  
+        <li class="nav-heading">Master Data</li>
+
 
         @if($level == 'Administrator')
         <li class="nav-item">
@@ -59,6 +60,23 @@
                 <span>Transaksi</span>
             </a>
         </li><!-- End Login Page Nav -->
+        @endif
+
+        @if($level == 'Administrator' || $level == 'Operator')
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('pickup.index') }}">
+                <i class="bi bi-truck"></i>
+                <span>Pickup Laundry</span>
+            </a>
+        </li>
+        @endif
+        @if($level == 'Pimpinan')
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('report.index') }}">
+                <i class="bi bi-folder2"></i>
+                <span>Laporan</span>
+            </a>
+        </li>
         @endif
     </ul>
 

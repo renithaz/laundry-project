@@ -7,11 +7,11 @@
                     @if ($errors->any())
                         <div class="alert alert-danger">{{ $errors->first() }}</div>
                     @endif
-                    <h5 class="card-title">{{ $title ?? '' }}</h5>
+                    <!-- <h5 class="card-title">{{ $title ?? '' }}</h5> -->
                     <form action="{{ route('service.update', $service->id) }}" method="post">
                         @csrf
                         @method('PUT')
-                        <div class="mb-3">
+                        <div class="mb-3 mt-3">
                             <label for="name" class="form-label">Nama Service *</label>
                             <input type="text" class="form-control" id="service_name" name="service_name"
                                 placeholder="Masukkan nama service" required value="{{ $service->service_name }}">
