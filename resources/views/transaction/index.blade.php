@@ -54,6 +54,7 @@
 
                                 <td>
                                     <a href="{{ route('transaction.show', $order->id) }}" class="btn btn-info btn-sm">Detail</a>
+                                    <a href="{{ route('transaction.print', $order->id) }}" target="_blank" class="btn btn-warning btn-sm">Cetak</a>
 
                                     {{-- <a href="{{ route('transaction.edit', $order->id) }}" class="btn btn-warning btn-sm">Edit</a> --}}
 

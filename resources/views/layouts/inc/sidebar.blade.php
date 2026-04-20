@@ -18,7 +18,7 @@
 
         @if($level == 'Administrator')
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('user.index') }}">
+            <a class="nav-link {{ request()->is('user*') ? '' : 'collapsed' }}" href="{{ route('user.index') }}">
                 <i class="bi bi-person"></i>
                 <span>User</span>
             </a>
@@ -27,7 +27,7 @@
 
         @if($level == 'Administrator' || $level == 'Operator')
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('customer.index') }}">
+            <a class="nav-link {{ request()->is('customer*') ? '' : 'collapsed' }}" href="{{ route('customer.index') }}">
                 <i class="bi bi-person-lines-fill"></i>
                 <span>Customer</span>
             </a>
@@ -36,7 +36,7 @@
 
         @if($level == 'Administrator' || $level == 'Operator')
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('service.index') }}">
+            <a class="nav-link {{ request()->is('service*') ? '' : 'collapsed' }}" href="{{ route('service.index') }}">
                 <i class="bi bi-card-list"></i>
                 <span>Service</span>
             </a>
@@ -46,7 +46,7 @@
 
         @if($level == 'Administrator')
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('level.index') }}">
+            <a class="nav-link {{ request()->is('level*') ? '' : 'collapsed' }}" href="{{ route('level.index') }}">
                 <i class="bi bi-person-workspace"></i>
                 <span>Level</span>
             </a>
@@ -55,7 +55,7 @@
 
         @if($level == 'Administrator' || $level == 'Operator')
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('transaction.index') }}">
+            <a class="nav-link {{ request()->is('transaction*') ? '' : 'collapsed' }}" href="{{ route('transaction.index') }}">
                 <i class="bi bi-box-arrow-in-right"></i>
                 <span>Transaksi</span>
             </a>
@@ -64,15 +64,15 @@
 
         @if($level == 'Administrator' || $level == 'Operator')
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('pickup.index') }}">
+            <a class="nav-link {{ request()->is('pickup*') ? '' : 'collapsed' }}" href="{{ route('pickup.index') }}">
                 <i class="bi bi-truck"></i>
                 <span>Pickup Laundry</span>
             </a>
         </li>
         @endif
-        @if($level == 'Pimpinan')
+        @if($level == 'Administrator' || $level == 'Operator' || $level == 'Pimpinan')
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('report.index') }}">
+            <a class="nav-link {{ request()->is('report*') ? '' : 'collapsed' }}" href="{{ route('report.index') }}">
                 <i class="bi bi-folder2"></i>
                 <span>Laporan</span>
             </a>

@@ -36,8 +36,8 @@
                             <input type="password" class="form-control" id="password" name="password"
                                 placeholder="Masukkan kata sandi anda" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Save</button>
-                        <a href="{{ url()->previous() }}" class="btn btn-secondary">Back</a>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <a href="{{ url()->previous() }}" class="btn btn-secondary">Kembali</a>
                     </form>
                 </div>
             </div>

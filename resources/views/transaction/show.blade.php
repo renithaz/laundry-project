@@ -43,9 +43,32 @@
                 @endforeach
             </tbody>
         </table>
+        
+        <div class="row justify-content-end">
+            <div class="col-md-4">
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Subtotal:</span>
+                    <span>Rp {{ number_format($order->details->sum('subtotal'), 0, ',', '.') }}</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2 text-success">
+                    <span>Diskon ({{ $order->discount_percent }}%):</span>
+                    <span>-Rp {{ number_format($order->discount_nominal, 0, ',', '.') }}</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Pajak (10%):</span>
+                    <span>Rp {{ number_format($order->tax, 0, ',', '.') }}</span>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between mb-3">
+                    <h5 class="fw-bold">Total:</h5>
+                    <h5 class="fw-bold">Rp {{ number_format($order->total, 0, ',', '.') }}</h5>
+                </div>
+            </div>
+        </div>
 
         
         <a href="{{ url()->previous() }}" class="btn btn-secondary">Back</a>
+        <a href="{{ route('transaction.print', $order->id) }}" target="_blank" class="btn btn-warning">Cetak Struk</a>
     </div>
 </div>
 @endsection

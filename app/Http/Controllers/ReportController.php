@@ -12,6 +12,7 @@ class ReportController extends Controller
      */
     public function index(Request $request)
     {
+        $title = "Laporan Penjualan Transaksi";
         $startDate = $request->input('start_date');
         $endDate = $request->input('end_date');
 
@@ -27,7 +28,7 @@ class ReportController extends Controller
             return view('report.print', compact('orders', 'startDate', 'endDate'));
         }
 
-        return view('report.index', compact('orders', 'startDate', 'endDate'));
+        return view('report.index', compact('title','orders', 'startDate', 'endDate'));
     }
 
     /**

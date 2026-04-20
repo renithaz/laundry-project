@@ -188,6 +188,12 @@ class TransOrderController extends Controller
         return redirect()->back()->with('Sukses', 'Status order berhasil diperbarui');
     }
 
+    public function print($id)
+    {
+        $transOrder = TransOrder::with(['customer', 'details.service'])->findOrFail($id);
+        return view('transaction.print', compact('transOrder'));
+    }
+
     /**
      * Remove the specified resource from storage.
      */
